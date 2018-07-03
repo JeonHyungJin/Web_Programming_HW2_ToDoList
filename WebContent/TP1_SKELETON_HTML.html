@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO in HTML5 Skeleton</title>
+	<!-- CSS, JS External 정의 -->
+	<link rel="stylesheet" type="text/css" href="TP1_SKELETON_CSS.css">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="TP1_SKELETON_JS.js"></script>
+</head>
+
+<body>
+	<div id="article_id">
+
+		<header>
+			<input type="button" value="Add ToDo" id="Add_ToDo_button" onclick="todobutton_click()" />
+			<!-- Header (Add ToDo 버튼, keyword 검색) -->
+			<span>최종 수정 : </span><span id ="resp_time"></span>
+			
+			<input type="button" name="del_item" id="del_item" value="DELETE" onclick="del_item_click()">
+			<input type="text" name="keyword_name" id="Enter_keyword_id" placeholder="Enter Your Keyword Here" onkeypress="if( event.keyCode==13 ){search();}"/>
+			<select id="day_dropdown" onkeypress="if( event.keyCode==13 ){search();}">
+				<option value="day">Day</option>
+				<option value="Monday">Monday</option>
+				<option value="Tuesday">Tuesday</option>
+				<option value="Wednesday">Wednesday</option>
+				<option value="Thursday">Thursday</option>
+				<option value="Friday">Friday</option>
+			</select>
+		</header>
+		<!-- AddToDo화면 -->
+		<div id="AddToDo_div" style="display:none">
+			<div id="writingTransparentBorder">
+			</div>
+			<!-- Add ToDo Button View -->
+			<div id="writingFormContainer">
+				<input type="image" alt="취소 버튼" src="img/delete.png" onclick="cancel()" id="cancel_button"/>
+				<select id="addtodo_window_day_dropdown">
+					<option value="Monday">Monday</option>
+					<option value="Tuesday">Tuesday</option>
+					<option value="Wednesday">Wednesday</option>
+					<option value="Thursday">Thursday</option>
+					<option value="Friday">Friday</option>
+				</select>
+				<input type="text" name="addtodo_window_todo_title" id="addtodo_window_todo_title" placeholder="Item AI"/>
+				<textarea onKeyPress="javascript: if (event.keyCode==13) return false;" name="addtodo_window_todo_article" id="addtodo_window_todo_article" placeholder="Contents AI" cols="30" rows="4" style = "resize: none;"></textarea>
+				<br/>
+				<input type="button" id="addtodo_window_submit_button" name="addtodo_window_submit_button" onclick="add_to_text()" value="Add"/>
+			</div>
+		</div>
+		<!-- ChangeToDo화면 -->
+		<div id="ChangeToDo_div" style="display:none">
+			<div id="changingTransparentBorder"></div>
+			<!-- Change ToDo Button View -->
+			<div id="changingFormContainer">
+				<input alt="취소 버튼" type="image" src="img/delete.png" onclick="change_window_close()" id="cancel_button_onchangetodo">
+				<select id="changetodo_window_day_dropdown" style="visibility:hidden">
+					<option value="Monday">Monday</option>
+					<option value="Tuesday">Tuesday</option>
+					<option value="Wednesday">Wednesday</option>
+					<option value="Thursday">Thursday</option>
+					<option value="Friday">Friday</option>
+				</select>
+				<input type="text" name="changetodo_window_todo_title" id="changetodo_window_todo_title"/>
+				<textarea onKeyPress="javascript: if (event.keyCode==13) return false;" name="changetodo_window_todo_article" id="changetodo_window_todo_article" cols="30" rows="2" style = "resize : none;"></textarea>
+				<input type="button" id="changetodo_window_submit_button" name="changetodo_window_submit_button" onclick="" value="Done"/>
+
+			</div>
+		</div>
+		<div id="main">
+			<!-- Middle Bar A~D, Display Area A~D -->
+			<div id="middleBar_mon" class="middle">
+				<div class="middleTop"><strong>mon</strong></div>
+				<div class="displayArea_mon"><b>월요일 목록</b>
+					<ul class="day_lists" id="monday_list"></ul>
+				</div>
+			</div>
+			<!--경계선-->
+			<div class="mainLine"></div>
+
+			<div id="middleBar_tue" class="middle">
+				<div class="middleTop"><strong>tue</strong></div>
+				<div class="displayArea_tue"><b>화요일 목록</b>
+					<ul class="day_lists"  id="tuesday_list"></ul>
+				</div>
+			</div>
+			<div class="mainLine"></div>
+
+			<div id="middleBar_wed" class="middle">
+				<div class="middleTop"><strong>wed</strong></div>
+				<div class="displayArea_wed"><b>수요일 목록</b>
+					<ul class="day_lists"  id="wednesday_list" ></ul>
+				</div>
+			</div>
+			<div class="mainLine"></div>
+
+			<div id="middleBar_thu" class="middle">
+				<div class="middleTop"><strong>thu</strong></div>
+				<div class="displayArea_thu"><b>목요일 목록</b>
+					<ul class="day_lists"  id="thursday_list" ></ul>
+				</div>
+			</div>
+			<div class="mainLine"></div>
+
+			<div id="middleBar_Fri" class="middle">
+				<div class="middleTop"><strong>Fri</strong></div>
+				<div class="displayArea_Fri"><b>금요일 목록</b>
+					<ul class="day_lists"  id="friday_list" ></ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>
